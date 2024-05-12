@@ -1,7 +1,6 @@
 package micheal65536.fountain.connector.plugin;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public interface ConnectorPlugin
 {
@@ -15,19 +14,21 @@ public interface ConnectorPlugin
 
 	void onWorldSaved(byte[] data) throws ConnectorPluginException;
 
-	@Nullable
-	Inventory onPlayerConnected(@NotNull PlayerLoginInfo playerLoginInfo) throws ConnectorPluginException;
+	boolean onPlayerConnected(@NotNull PlayerLoginInfo playerLoginInfo) throws ConnectorPluginException;
 
 	@NotNull
-	DisconnectResponse onPlayerDisconnected(@NotNull String playerId, @NotNull Inventory inventory) throws ConnectorPluginException;
+	DisconnectResponse onPlayerDisconnected(@NotNull String playerId) throws ConnectorPluginException;
+
+	@NotNull
+	Inventory onPlayerGetInventory(@NotNull String playerId) throws ConnectorPluginException;
 
 	void onPlayerInventoryAddItem(@NotNull String playerId, @NotNull String itemId, int count) throws ConnectorPluginException;
 
 	void onPlayerInventoryAddItem(@NotNull String playerId, @NotNull String itemId, @NotNull String instanceId, int wear) throws ConnectorPluginException;
 
-	void onPlayerInventoryRemoveItem(@NotNull String playerId, @NotNull String itemId, int count) throws ConnectorPluginException;
+	int onPlayerInventoryRemoveItem(@NotNull String playerId, @NotNull String itemId, int count) throws ConnectorPluginException;
 
-	void onPlayerInventoryRemoveItem(@NotNull String playerId, @NotNull String itemId, @NotNull String instanceId) throws ConnectorPluginException;
+	boolean onPlayerInventoryRemoveItem(@NotNull String playerId, @NotNull String itemId, @NotNull String instanceId) throws ConnectorPluginException;
 
 	void onPlayerInventoryUpdateItemWear(@NotNull String playerId, @NotNull String itemId, @NotNull String instanceId, int wear) throws ConnectorPluginException;
 
