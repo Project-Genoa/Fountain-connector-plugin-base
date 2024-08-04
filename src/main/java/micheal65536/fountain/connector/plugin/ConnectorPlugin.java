@@ -8,12 +8,6 @@ public interface ConnectorPlugin
 
 	void shutdown() throws ConnectorPluginException;
 
-	void onServerReady() throws ConnectorPluginException;
-
-	void onServerStopping() throws ConnectorPluginException;
-
-	void onWorldSaved(byte[] data) throws ConnectorPluginException;
-
 	boolean onPlayerConnected(@NotNull PlayerLoginInfo playerLoginInfo) throws ConnectorPluginException;
 
 	@NotNull
