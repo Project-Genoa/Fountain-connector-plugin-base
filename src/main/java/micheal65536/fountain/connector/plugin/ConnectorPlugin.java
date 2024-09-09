@@ -13,6 +13,8 @@ public interface ConnectorPlugin
 	@NotNull
 	DisconnectResponse onPlayerDisconnected(@NotNull String playerId) throws ConnectorPluginException;
 
+	boolean onPlayerDead(@NotNull String playerId) throws ConnectorPluginException;
+
 	@NotNull
 	Inventory onPlayerGetInventory(@NotNull String playerId) throws ConnectorPluginException;
 
