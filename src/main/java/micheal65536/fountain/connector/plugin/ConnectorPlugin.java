@@ -11,7 +11,7 @@ public interface ConnectorPlugin
 	boolean onPlayerConnected(@NotNull PlayerLoginInfo playerLoginInfo) throws ConnectorPluginException;
 
 	@NotNull
-	DisconnectResponse onPlayerDisconnected(@NotNull String playerId) throws ConnectorPluginException;
+	DisconnectResponse onPlayerDisconnected(@NotNull String playerId, float health) throws ConnectorPluginException;
 
 	boolean onPlayerDead(@NotNull String playerId) throws ConnectorPluginException;
 
